@@ -21,7 +21,7 @@ class Core{
 	}
 
 	public function getConfig($name){
-		return $this->config($name);
+		return $this->config[$name];
 	}
 
 	public function loadModule($moduleName){

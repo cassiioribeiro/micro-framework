@@ -4,7 +4,16 @@ $this->get('noticias', function($arg){
 });
 
 $this->get('noticias/{id}', function($arg){
-	echo 'quero ver uma noticia especifica...';
+	$tpl = $this->core->loadModule('template');
+	$db = $this->core->loadModule('database');
+
+	$sql = $db->query("SELECT * FROM noticias");
+	$array = $sql->fetchAll();
+
+	print_r($array);
+
+
+	$tpl->render('teste', $array=NULL);
 });
 
 $this->get('nome/{nome}/{idade}', function($arg){
